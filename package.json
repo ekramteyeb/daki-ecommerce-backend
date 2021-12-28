@@ -1,0 +1,113 @@
+{
+  "name": "express-typescript-starter",
+  "version": "0.1.0",
+  "description": "A starting point for Node.js express apps with TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/TypeScript-Node-Starter"
+  },
+  "author": "Bowden Kelly",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run serve",
+    "build": "npm run build-ts && npm run lint",
+    "serve": "node dist/server.js",
+    "watch-node": "nodemon dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
+    "test": "jest --forceExit --detectOpenHandles --coverage --verbose false",
+    "watch-test": "npm run test -- --watchAll",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "debug": "npm run build && npm run watch-debug",
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
+  },
+  "dependencies": {
+    "@types/jsonwebtoken": "^8.3.7",
+    "@types/lusca": "^1.7.0",
+    "@types/mongoose": "^5.11.97",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "google-auth-library": "^7.10.3",
+    "heroku": "7.59.2",
+    "husky": "^4.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^10.0.8",
+    "lodash": "^4.17.15",
+    "lusca": "^1.7.0",
+    "mongodb": "^4.2.2",
+    "mongodb-memory-server": "^6.3.1",
+    "mongoose": "^6.0.2",
+    "mongoose-findorcreate": "^3.0.0",
+    "mongoose-unique-validator": "^3.0.0",
+    "passport": "^0.4.1",
+    "passport-google-id-token": "^0.4.7",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/chai": "^4.3.0",
+    "@types/compression": "^1.7.2",
+    "@types/concurrently": "^4.1.1",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/errorhandler": "^0.0.32",
+    "@types/eslint": "^6.1.8",
+    "@types/expect": "^24.3.0",
+    "@types/express": "^4.17.2",
+    "@types/lodash": "^4.14.149",
+    "@types/mongoose-unique-validator": "^1.0.5",
+    "@types/node": "^12.12.28",
+    "@types/node-sass": "^4.11.0",
+    "@types/nodemailer": "^6.4.0",
+    "@types/passport": "^1.0.2",
+    "@types/passport-jwt": "^3.0.6",
+    "@types/passport-local": "^1.0.33",
+    "@types/supertest": "^2.0.8",
+    "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "chai": "^4.3.4",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.5.0",
+    "jest": "^27.4.4",
+    "mocha": "^9.1.3",
+    "mongoosastic": "^4.6.0",
+    "nodemailer": "^6.7.2",
+    "nodemon": "^1.19.4",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.1.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "packageManager": "yarn@3.1.1",
+  "engines": {
+    "node": "17.0.1",
+    "npm": "6.14.8"
+  }
+}
