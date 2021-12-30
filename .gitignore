@@ -42,3 +42,4 @@ dist/**/*
 *.swo
 *.swp
 request.http
+try-php-mainpage
