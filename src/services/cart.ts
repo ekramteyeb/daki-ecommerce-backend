@@ -20,7 +20,6 @@ const findByUserId = async (userId: string | any): Promise<CartDocument> => {
   if (!foundCart) {
     throw new NotFoundError(`Cart with this ${userId} not found`)
   }
-
   return foundCart
 }
 
@@ -38,7 +37,6 @@ const update = async (
   const foundCart = await Cart.findByIdAndUpdate(cartId, update, {
     new: true,
   })
-
   if (!foundCart) {
     throw new NotFoundError(`Cart ${cartId} not found`)
   }
